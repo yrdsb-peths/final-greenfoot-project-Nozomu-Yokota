@@ -8,12 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Mine extends Actor
 {
+    int gravity = 2;
     /**
      * Act - do whatever the Mine wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public Mine()
+    {
+        
+    }
     public void act()
     {
-        // Add your action code here.
+        int x = getX();
+        int y = getY();
+        setLocation(x, y + gravity);
     }
 }
