@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    public int score = 0;
+    public int life = 3;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -21,5 +23,11 @@ public class MyWorld extends World
         addObject(back, 300, 200);
         Mine m = new Mine();
         Spike s = new Spike();
+        Gun g = new Gun();
+        addObject(g, 300, 300);
+    }
+    public void increaseScore()
+    {
+        
     }
 }
