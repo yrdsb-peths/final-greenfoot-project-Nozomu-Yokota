@@ -15,11 +15,35 @@ public class Bullet extends Actor
      */
     public Bullet()
     {
-        b.scale(100,100);
+        b.scale(50, 50);
         setImage(b);
+    }
+    public void move()
+    {
+        int x = getX();
+        int y = getY();
+        if(Greenfoot.isKeyDown("A"))
+        {
+            x-= 5;
+        }
+        if(Greenfoot.isKeyDown("D")){
+            x+= 5;
+        }
+        if(Greenfoot.isKeyDown("space"))
+        {
+            y -= 5;
+        }
+        setLocation(x, y);
     }
     public void act()
     {
-        // Add your action code here.
+        move();
+        int top = getWorld().getHeight();
+        top -=400;
+        
+        MyWorld world = (MyWorld) getWorld();
+        if(getY()<= top){
+            world.removeObject(this);   
+        }
     }
 }

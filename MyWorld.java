@@ -21,6 +21,8 @@ public class MyWorld extends World
         super(600, 400, 1);
         BackGround back = new BackGround();
         addObject(back, 300, 200);
+        Bullet b = new Bullet();
+        addObject(b, 300, 350);
         Mine m = new Mine();
         Spike s = new Spike();
         Gun g = new Gun();
