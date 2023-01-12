@@ -18,8 +18,20 @@ public class Gun extends Actor
         g.scale(100, 100);
         setImage(g);
     }
+    public void move(){
+        int x = getX();
+        int y = getY();
+        if(Greenfoot.isKeyDown("A"))
+        {
+            x-= 5;
+        }
+        if(Greenfoot.isKeyDown("D")){
+            x+= 5;
+        }
+        setLocation(x, y);
+    }   
     public void act()
     {
-        // Add your action code here.
+        move();
     }
 }

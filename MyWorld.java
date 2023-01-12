@@ -24,7 +24,7 @@ public class MyWorld extends World
         Mine m = new Mine();
         Spike s = new Spike();
         Gun g = new Gun();
-        addObject(g, 300, 300);
+        addObject(g, 300, 350);
     }
     public void increaseScore()
     {
