@@ -15,6 +15,14 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    public void spawnBullet()
+    {
+        Bullet B = new Bullet();
+        int y = 350;
+        int x = 300;
+        addObject(B, x, y);
+    }
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -28,6 +36,7 @@ public class MyWorld extends World
         Gun g = new Gun();
         addObject(g, 300, 350);
     }
+    
     public void increaseScore()
     {
         

@@ -13,9 +13,11 @@ public class Bullet extends Actor
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private boolean spaceDown;
+    
     public Bullet()
     {
-        b.scale(50, 50);
+        b.scale(25, 25);
         setImage(b);
     }
     public void move()
@@ -29,9 +31,9 @@ public class Bullet extends Actor
         if(Greenfoot.isKeyDown("D")){
             x+= 5;
         }
-        if(Greenfoot.isKeyDown("space"))
+        if( Greenfoot.isKeyDown("space"))
         {
-            y -= 5;
+            y -= 100;
         }
         setLocation(x, y);
     }
@@ -43,7 +45,8 @@ public class Bullet extends Actor
         
         MyWorld world = (MyWorld) getWorld();
         if(getY()<= top){
-            world.removeObject(this);   
+            world.removeObject(this); 
+            world.spawnBullet();
         }
     }
 }

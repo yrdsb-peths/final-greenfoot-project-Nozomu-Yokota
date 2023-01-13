@@ -23,17 +23,21 @@ public class Title extends World
     }
     public void act()
     {
-        if(Greenfoot.isKeyDown("space"))
+        if(Greenfoot.isKeyDown("enter"))
         {
             MyWorld gameWorld =new MyWorld();
             Greenfoot.setWorld(gameWorld);
         }
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
+        Gun gun = new Gun();
+        addObject(gun,539,105);
+        gun.setLocation(538,118);
     }
 }
