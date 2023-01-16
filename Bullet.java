@@ -24,16 +24,13 @@ public class Bullet extends Actor
     {
         int x = getX();
         int y = getY();
-        if(Greenfoot.isKeyDown("A"))
-        {
-            x-= 5;
-        }
-        if(Greenfoot.isKeyDown("D")){
-            x+= 5;
-        }
         if( Greenfoot.isKeyDown("space"))
         {
-            y -= 100;
+            y -= 1;
+        }
+        if(y != 350)
+        {
+            y -= 10;
         }
         setLocation(x, y);
     }
@@ -42,6 +39,7 @@ public class Bullet extends Actor
         move();
         int top = getWorld().getHeight();
         top -=400;
+        int y = getY();
         
         MyWorld world = (MyWorld) getWorld();
         if(getY()<= top){

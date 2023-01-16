@@ -32,7 +32,6 @@ public class MyWorld extends World
         Bullet b = new Bullet();
         addObject(b, 300, 350);
         Mine m = new Mine();
-        Spike s = new Spike();
         Gun g = new Gun();
         addObject(g, 300, 350);
     }
