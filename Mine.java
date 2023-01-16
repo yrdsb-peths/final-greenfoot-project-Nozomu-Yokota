@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Mine extends Actor
 {
+    GreenfootImage M = new GreenfootImage("images/Mine.png");
     int gravity = 2;
     /**
      * Act - do whatever the Mine wants to do. This method is called whenever
@@ -15,13 +16,14 @@ public class Mine extends Actor
      */
     public Mine()
     {
-        
+        M.scale(50, 50);
+        setImage(M);
     }
     public void act()
     {
         int x = getX();
         int y = getY();
-        setLocation(x, y + gravity);
+        setLocation(x + gravity, y);
         
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Bullet.class)){

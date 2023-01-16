@@ -34,6 +34,7 @@ public class MyWorld extends World
         Mine m = new Mine();
         Gun g = new Gun();
         addObject(g, 300, 350);
+        addObject(m, 0, 0);
     }
     
     public void youDied(){
@@ -41,7 +42,12 @@ public class MyWorld extends World
         addObject(youDiedLabel, 300, 200);
     }
     
-    
+    public void spawnMine(){
+        Mine M = new Mine();
+        int y = Greenfoot.getRandomNumber(150);
+        int x = 0;
+        addObject(M, x, y);
+    }
     
     public void increaseScore()
     {
