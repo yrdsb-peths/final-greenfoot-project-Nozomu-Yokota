@@ -22,5 +22,11 @@ public class Mine extends Actor
         int x = getX();
         int y = getY();
         setLocation(x, y + gravity);
+        
+        MyWorld world = (MyWorld) getWorld();
+        if(isTouching(Bullet.class)){
+            removeTouching(Bullet.class);
+            world.youDied();
+        }
     }
 }

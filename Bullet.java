@@ -30,7 +30,7 @@ public class Bullet extends Actor
         }
         if(y != 350)
         {
-            y -= 10;
+            y -= 20;
         }
         setLocation(x, y);
     }

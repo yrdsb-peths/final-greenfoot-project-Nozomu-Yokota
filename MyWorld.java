@@ -36,6 +36,13 @@ public class MyWorld extends World
         addObject(g, 300, 350);
     }
     
+    public void youDied(){
+        Label youDiedLabel = new Label("You Died", 100);
+        addObject(youDiedLabel, 300, 200);
+    }
+    
+    
+    
     public void increaseScore()
     {
         
