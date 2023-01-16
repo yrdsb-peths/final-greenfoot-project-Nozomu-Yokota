@@ -17,7 +17,7 @@ public class Bullet extends Actor
     
     public Bullet()
     {
-        b.scale(25, 25);
+        b.scale(10, 10);
         setImage(b);
     }
     public void move()
@@ -42,6 +42,9 @@ public class Bullet extends Actor
         int y = getY();
         
         MyWorld world = (MyWorld) getWorld();
+        if(isTouching(Tomato.class)){
+            world.increaseScore();
+        }
         if(getY()<= top){
             world.removeObject(this); 
             world.spawnBullet();

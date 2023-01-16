@@ -19,7 +19,7 @@ public class MyWorld extends World
     {
         Bullet B = new Bullet();
         int y = 350;
-        int x = 300;
+        int x = 280;
         addObject(B, x, y);
     }
     
@@ -30,7 +30,7 @@ public class MyWorld extends World
         BackGround back = new BackGround();
         addObject(back, 300, 200);
         Bullet b = new Bullet();
-        addObject(b, 300, 350);
+        addObject(b, 280, 350);
         Mine m = new Mine();
         Gun g = new Gun();
         addObject(g, 300, 350);
@@ -51,6 +51,6 @@ public class MyWorld extends World
     
     public void increaseScore()
     {
-        
+        score++;
     }
 }
