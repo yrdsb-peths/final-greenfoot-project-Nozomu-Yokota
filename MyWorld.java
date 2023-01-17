@@ -27,18 +27,15 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(600, 400, 1, false);
         BackGround back = new BackGround();
         addObject(back, 300, 200);
         Bullet b = new Bullet();
         addObject(b, 280, 350);
-        Mine m = new Mine();
         Gun g = new Gun();
-        Tomato t = new Tomato();
         addObject(g, 300, 350);
-        addObject(m, 0, 0);
-        addObject(t, 0, 0);
-        addObject(scoreLabel, 30, 30);
+        spawnMine();
+        spawnTomato();
     }
     
     public void youDied(){

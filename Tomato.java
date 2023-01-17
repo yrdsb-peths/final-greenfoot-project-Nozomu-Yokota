@@ -29,7 +29,6 @@ public class Tomato extends Actor
         if(isTouching(Bullet.class)){
             world.increaseScore();
             world.removeObject(this);
-            
         }
     }
 }
