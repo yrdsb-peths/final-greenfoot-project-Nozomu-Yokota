@@ -9,14 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Mine extends Actor
 {
     GreenfootImage M = new GreenfootImage("images/Mine.png");
-    int gravity = 4;
+    int gravity = 2;
     /**
      * Act - do whatever the Mine wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Mine()
     {
-        M.scale(50, 50);
+        M.scale(40, 40);
         setImage(M);
     }
     public void act()
@@ -25,9 +25,11 @@ public class Mine extends Actor
         int y = getY();
         setLocation(x + gravity, y);
         int side = getWorld().getWidth();
+        side -= 600;
         
         MyWorld world = (MyWorld) getWorld();
-        if(getX() >= 600){
+        if(getX() == side){
+            world.removeObject(this);
             world.spawnMine();
         }
         if(isTouching(Bullet.class)){

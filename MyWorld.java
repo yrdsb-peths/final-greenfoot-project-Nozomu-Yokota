@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     public int score = 0;
+    Label scoreLabel;
     public int life = 3;
     
     /**
@@ -33,8 +34,11 @@ public class MyWorld extends World
         addObject(b, 280, 350);
         Mine m = new Mine();
         Gun g = new Gun();
+        Tomato t = new Tomato();
         addObject(g, 300, 350);
         addObject(m, 0, 0);
+        addObject(t, 0, 0);
+        addObject(scoreLabel, 30, 30);
     }
     
     public void youDied(){
@@ -42,9 +46,16 @@ public class MyWorld extends World
         addObject(youDiedLabel, 300, 200);
     }
     
+    public void spawnTomato(){
+        Tomato T = new Tomato();
+        int y = Greenfoot.getRandomNumber(200);
+        int x = 0;
+        addObject(T, x, y);
+    }
+    
     public void spawnMine(){
         Mine M = new Mine();
-        int y = Greenfoot.getRandomNumber(150);
+        int y = Greenfoot.getRandomNumber(100);
         int x = 0;
         addObject(M, x, y);
     }
