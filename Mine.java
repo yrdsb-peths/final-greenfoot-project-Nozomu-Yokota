@@ -9,7 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Mine extends Actor
 {
     GreenfootImage M = new GreenfootImage("images/Mine.png");
-    int gravity = 2;
+    int gravity = 1;
+    int speed = 2;
+    GreenfootSound explode = new GreenfootSound("explode.mp3");
     /**
      * Act - do whatever the Mine wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,20 +23,25 @@ public class Mine extends Actor
     }
     public void act()
     {
-        int x = getX();
+        int x = getX() + speed;
         int y = getY();
         setLocation(x + gravity, y);
         int side = getWorld().getWidth();
-        side -= 600;
         
         MyWorld world = (MyWorld) getWorld();
-        if(getX() == side){
+        if(x >= side){
             world.removeObject(this);
             world.spawnMine();
         }
-        if(isTouching(Bullet.class)){
+        else if(isTouching(Bullet.class)){
             removeTouching(Bullet.class);
-            world.youDied();
+            YouDied die =new YouDied();
+            Greenfoot.setWorld(die);
+            explode.play();
         }
+    }
+    
+    public void setSpeed(int sped){
+        speed = sped;
     }
 }

@@ -9,11 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 {
     GreenfootImage b = new GreenfootImage("images/bullet.png");
+    GreenfootSound sound = new GreenfootSound("fire.mp3");
     /**
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private boolean spaceDown;
     
     public Bullet()
     {
@@ -27,6 +27,7 @@ public class Bullet extends Actor
         if( Greenfoot.isKeyDown("space"))
         {
             y -= 1;
+            sound.play();
         }
         if(y != 350)
         {
@@ -42,10 +43,8 @@ public class Bullet extends Actor
         int y = getY();
         
         MyWorld world = (MyWorld) getWorld();
-        if(isTouching(Tomato.class)){
-            world.increaseScore();
-        }
-        if(getY()<= top){
+
+        if(y <= top){
             world.removeObject(this); 
             world.spawnBullet();
         }

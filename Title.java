@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Title extends World
 {
-    Label titleLabel = new Label("shooting game", 75);
+    Label titleLabel = new Label("shoot Tomato", 75);
+    Label start = new Label("Start", 50);
+    Label how = new Label("How To Play", 50);
     /**
      * Constructor for objects of class Title.
      * 
@@ -20,13 +22,19 @@ public class Title extends World
 
         addObject(titleLabel, 260, 90);
         prepare();
+        addObject(start, 300, 200);
+        addObject(how, 300, 250);
     }
     public void act()
     {
-        if(Greenfoot.isKeyDown("enter"))
+        if(Greenfoot.mouseClicked(start))
         {
             MyWorld gameWorld =new MyWorld();
             Greenfoot.setWorld(gameWorld);
+        }
+        if(Greenfoot.mouseClicked(how)){
+            HowToPlay howTo = new HowToPlay();
+            Greenfoot.setWorld(howTo);
         }
     }
     
@@ -39,5 +47,6 @@ public class Title extends World
         Gun gun = new Gun();
         addObject(gun,539,105);
         gun.setLocation(538,118);
+        
     }
 }

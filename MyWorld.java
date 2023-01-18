@@ -10,7 +10,7 @@ public class MyWorld extends World
 {
     public int score = 0;
     Label scoreLabel;
-    public int life = 3;
+    int level = 1;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -36,6 +36,8 @@ public class MyWorld extends World
         addObject(g, 300, 350);
         spawnMine();
         spawnTomato();
+        scoreLabel = new Label(0, 75);
+        addObject(scoreLabel, 30, 30);
     }
     
     public void youDied(){
@@ -45,6 +47,7 @@ public class MyWorld extends World
     
     public void spawnTomato(){
         Tomato T = new Tomato();
+        T.setSpeed(level);
         int y = Greenfoot.getRandomNumber(200);
         int x = 0;
         addObject(T, x, y);
@@ -52,7 +55,8 @@ public class MyWorld extends World
     
     public void spawnMine(){
         Mine M = new Mine();
-        int y = Greenfoot.getRandomNumber(100);
+        M.setSpeed(level);
+        int y = Greenfoot.getRandomNumber(200);
         int x = 0;
         addObject(M, x, y);
     }
@@ -60,5 +64,10 @@ public class MyWorld extends World
     public void increaseScore()
     {
         score++;
+        scoreLabel.setValue(score);
+        
+        if(score % 10 == 0){
+            level += 1;
+        }
     }
 }
